@@ -1,0 +1,35 @@
+body {
+    padding-top: 20px;
+    background-color: #f8f9fa;
+}
+
+.feature-icon {
+    width: 72px;
+    height: 72px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+    font-size: 2rem;
+    color: white;
+}
+
+.card {
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary {
+    background-color: #8B4513;
+    border-color: #8B4513;
+}
+
+.btn-primary:hover {
+    background-color: #654321;
+    border-color: #654321;
+}
+
+.alert {
+    margin-top: 20px;
+}

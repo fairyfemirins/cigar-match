@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-8 mx-auto">
+            <h2 class="mb-4">Admin Panel: Cigar Inventory</h2>
+            <a href="{{ url_for('admin_add_cigar') }}" class="btn btn-primary mb-3">Add Cigar</a>
+            
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Brand</th>
+                        <th>Strength</th>
+                        <th>Wrapper</th>
+                        <th>Origin</th>
+                        <th>Price Range</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for cigar in cigars %}
+                        <tr>
+                            <td>{{ cigar.name }}</td>
+                            <td>{{ cigar.brand }}</td>
+                            <td>{{ cigar.strength|capitalize }}</td>
+                            <td>{{ cigar.wrapper|capitalize }}</td>
+                            <td>{{ cigar.origin|capitalize }}</td>
+                            <td>{{ cigar.price_range|capitalize }}</td>
+                            <td>
+                                <a href="{{ url_for('admin_edit_cigar', id=cigar.id) }}" class="btn btn-sm btn-warning">Edit</a>
+                                <a href="{{ url_for('admin_delete_cigar', id=cigar.id) }}" class="btn btn-sm btn-danger">Delete</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

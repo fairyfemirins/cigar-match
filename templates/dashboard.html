@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-8 mx-auto">
+            <h2 class="mb-4">Dashboard</h2>
+            
+            {% if preferences %}
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h5>Your Preferences</h5>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>Strength:</strong> {{ preferences.strength|capitalize }}</p>
+                        <p><strong>Wrapper:</strong> {{ preferences.wrapper|capitalize }}</p>
+                        <p><strong>Origin:</strong> {{ preferences.origin|capitalize }}</p>
+                        <p><strong>Price Range:</strong> {{ preferences.price|capitalize }}</p>
+                        <p><strong>Frequency:</strong> {{ preferences.frequency|capitalize }}</p>
+                        <a href="{{ url_for('preferences') }}" class="btn btn-primary">Update Preferences</a>
+                    </div>
+                </div>
+                
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h5>Recommended Cigars</h5>
+                    </div>
+                    <div class="card-body">
+                        {% if recommendations %}
+                            <div class="row">
+                                {% for cigar in recommendations %}
+                                    <div class="col-md-4 mb-3">
+                                        <div class="card h-100">
+                                            <div class="card-body">
+                                                <h5 class="card-title">{{ cigar }}</h5>
+                                                <p class="card-text">A premium cigar tailored to your taste.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            <p>No recommendations yet. Please set your preferences.</p>
+                        {% endif %}
+                        <a href="{{ url_for('subscribe') }}" class="btn btn-success mt-3">Subscribe Now</a>
+                    </div>
+                </div>
+            {% else %}
+                <div class="alert alert-info">
+                    You haven't set your preferences yet. <a href="{{ url_for('preferences') }}">Set them now</a> to get personalized recommendations.
+                </div>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-8 mx-auto text-center">
+            <h1 class="display-4 mb-4">Find Your Perfect Cigar</h1>
+            <p class="lead mb-5">
+                CigarMatch uses AI to recommend cigars tailored to your taste preferences.
+                Sign up for a personalized cigar subscription and discover new favorites every month.
+            </p>
+            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                <a href="{{ url_for('register') }}" class="btn btn-primary btn-lg px-4 gap-3">Get Started</a>
+                <a href="{{ url_for('login') }}" class="btn btn-outline-secondary btn-lg px-4">Log In</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row mt-5">
+        <div class="col-md-4 text-center">
+            <div class="feature-icon bg-primary bg-gradient mb-3">
+                <i class="bi bi-search"></i>
+            </div>
+            <h3>Personalized Recommendations</h3>
+            <p>Our AI analyzes your preferences to suggest cigars you'll love.</p>
+        </div>
+        <div class="col-md-4 text-center">
+            <div class="feature-icon bg-success bg-gradient mb-3">
+                <i class="bi bi-box-seam"></i>
+            </div>
+            <h3>Monthly Subscriptions</h3>
+            <p>Receive handpicked cigars delivered to your door every month.</p>
+        </div>
+        <div class="col-md-4 text-center">
+            <div class="feature-icon bg-warning bg-gradient mb-3">
+                <i class="bi bi-gem"></i>
+            </div>
+            <h3>Premium Selection</h3>
+            <p>Access a curated collection of cigars from top brands and regions.</p>
+        </div>
+    </div>
+{% endblock %}

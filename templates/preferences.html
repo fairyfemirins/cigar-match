@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <h2 class="text-center mb-4">Set Your Preferences</h2>
+            <form method="POST" action="{{ url_for('preferences') }}">
+                {{ form.hidden_tag() }}
+                <div class="mb-3">
+                    {{ form.strength.label(class="form-label") }}
+                    {{ form.strength(class="form-select") }}
+                </div>
+                <div class="mb-3">
+                    {{ form.wrapper.label(class="form-label") }}
+                    {{ form.wrapper(class="form-select") }}
+                </div>
+                <div class="mb-3">
+                    {{ form.origin.label(class="form-label") }}
+                    {{ form.origin(class="form-select") }}
+                </div>
+                <div class="mb-3">
+                    {{ form.price.label(class="form-label") }}
+                    {{ form.price(class="form-select") }}
+                </div>
+                <div class="mb-3">
+                    {{ form.frequency.label(class="form-label") }}
+                    {{ form.frequency(class="form-select") }}
+                </div>
+                <div class="d-grid">
+                    {{ form.submit(class="btn btn-primary") }}
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}
